@@ -39,6 +39,12 @@ public class GestionCandidaturas {
             throw new TrackerException("Estado no válido: " + texto);
         }
     }
+    private static String aLinea(Candidatura c){
+        return String.join(separador,String.valueOf(c.id()),sanear(c.titulo()),sanear(c.empresa()),c.estadoCandidatura().name().toLowerCase(),
+                c.fechaPostulacion().format(Form_fecha),sanear(c.enlace()),sanear(c.notas()));
+    }
 
-    private static String sanear
+    private static String sanear(String texto){
+        return texto==null?"":texto.replace(separador,",");
+    }
 }
