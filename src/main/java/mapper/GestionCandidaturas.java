@@ -10,8 +10,12 @@ import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
 
+/**
+ * Convierte candidaturas entre objetos y líneas de texto.
+ */
 public class GestionCandidaturas {
 
+    /** Formato de fecha usado en el archivo de candidaturas. */
     public static final DateTimeFormatter Form_fecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private static final String SEPARADOR = ";";
@@ -21,6 +25,13 @@ public class GestionCandidaturas {
     }
 
 
+    /**
+     * Convierte una línea almacenada en una candidatura.
+     *
+     * @param linea línea con los campos separados por punto y coma
+     * @return candidatura representada por la línea
+     * @throws TrackerException si el formato de la línea no es válido
+     */
     public static Candidatura desdeLinea(String linea) {
         String[] campos = linea.split(SEPARADOR, -1);
         if (campos.length != N_CAMPOS) {
@@ -42,6 +53,13 @@ public class GestionCandidaturas {
     }
 
 
+    /**
+     * Convierte un texto al estado correspondiente.
+     *
+     * @param texto nombre del estado
+     * @return estado de la candidatura
+     * @throws TrackerException si el texto no identifica un estado válido
+     */
     public static EstadoCandidatura parsearEstado(String texto) {
         try {
             return EstadoCandidatura.valueOf(texto.trim().toUpperCase(Locale.ROOT));
@@ -53,6 +71,12 @@ public class GestionCandidaturas {
 
 
 
+    /**
+     * Convierte una candidatura en una línea para su almacenamiento.
+     *
+     * @param c candidatura que se convertirá
+     * @return línea con sus campos separados por punto y coma
+     */
     public static String aLinea(Candidatura c) {
         return String.join(SEPARADOR,
                 String.valueOf(c.id()),

@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * Interpreta y ejecuta los comandos de la aplicación.
+ */
 public class ControladorCLI {
 
     private static final DateTimeFormatter FORM_FECHA =
@@ -22,14 +25,28 @@ public class ControladorCLI {
 
     private final GestorArchivos gestor;
 
+    /**
+     * Crea el controlador con el gestor de archivos predeterminado.
+     */
     public ControladorCLI() {
         this(new GestorArchivos());
     }
 
+    /**
+     * Crea el controlador con un gestor de archivos.
+     *
+     * @param gestor gestor usado para acceder a las candidaturas
+     */
     public ControladorCLI(GestorArchivos gestor) {
         this.gestor = gestor;
     }
 
+    /**
+     * Ejecuta la operación indicada en los argumentos.
+     *
+     * @param args comando y opciones recibidos
+     * @return código de salida: cero si termina correctamente
+     */
     public int ejecutar(String[] args) {
         if (args.length == 0) {
             return error("Debes indicar una operación. Consulta la ayuda con 'ayuda'.");

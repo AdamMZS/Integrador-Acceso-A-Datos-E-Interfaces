@@ -18,6 +18,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * Lee, guarda y importa candidaturas desde archivos.
+ */
 public class GestorArchivos {
 
     private static final DateTimeFormatter FORM_FECHA =
@@ -27,14 +30,28 @@ public class GestorArchivos {
 
     private final Path rutaArchivo;
 
+    /**
+     * Crea el gestor usando {@code candidaturas.txt} en el directorio actual.
+     */
     public GestorArchivos() {
         this(Paths.get("candidaturas.txt"));
     }
 
+    /**
+     * Crea el gestor para la ruta indicada.
+     *
+     * @param rutaArchivo archivo donde se almacenan las candidaturas
+     */
     public GestorArchivos(Path rutaArchivo) {
         this.rutaArchivo = rutaArchivo;
     }
 
+    /**
+     * Lee todas las candidaturas almacenadas.
+     *
+     * @return candidaturas leídas, o una lista vacía si el archivo no existe
+     * @throws IOException si no se puede leer el archivo
+     */
     public List<Candidatura> leerTodas() throws IOException {
         List<Candidatura> candidaturas = new ArrayList<>();
         if (!Files.exists(rutaArchivo)) {
@@ -56,15 +73,34 @@ public class GestorArchivos {
         return candidaturas;
     }
 
+    /**
+     * Sustituye el contenido del archivo por la lista indicada.
+     *
+     * @param candidaturas candidaturas que se guardarán
+     * @throws IOException si no se puede escribir el archivo
+     */
     public void guardarTodas(List<Candidatura> candidaturas) throws IOException {
         List<String> lineas = candidaturas.stream().map(this::aLinea).toList();
         Files.write(rutaArchivo, lineas, StandardCharsets.UTF_8);
     }
 
+    /**
+     * Calcula el siguiente identificador disponible.
+     *
+     * @return identificador posterior al mayor almacenado
+     * @throws IOException si no se puede leer el archivo
+     */
     public long siguienteId() throws IOException {
         return leerTodas().stream().mapToLong(Candidatura::id).max().orElse(0) + 1;
     }
 
+    /**
+     * Añade una candidatura si su identificador no está en uso.
+     *
+     * @param candidatura candidatura que se guardará
+     * @throws IOException si no se puede leer o escribir el archivo
+     * @throws IllegalArgumentException si ya existe el identificador
+     */
     public void añadir(Candidatura candidatura) throws IOException {
         List<Candidatura> candidaturas = leerTodas();
         if (candidaturas.stream().anyMatch(c -> c.id() == candidatura.id())) {
@@ -74,6 +110,13 @@ public class GestorArchivos {
         guardarTodas(candidaturas);
     }
 
+    /**
+     * Busca una candidatura por su identificador.
+     *
+     * @param id identificador que se busca
+     * @return candidatura encontrada, o {@code null} si no existe
+     * @throws IOException si no se puede leer el archivo
+     */
     public Candidatura buscarPorId(long id) throws IOException {
         return leerTodas().stream()
                 .filter(candidatura -> candidatura.id() == id)
@@ -81,6 +124,13 @@ public class GestorArchivos {
                 .orElse(null);
     }
 
+    /**
+     * Elimina la candidatura con el identificador indicado.
+     *
+     * @param id identificador de la candidatura
+     * @return {@code true} si se eliminó una candidatura
+     * @throws IOException si no se puede leer o escribir el archivo
+     */
     public boolean borrar(long id) throws IOException {
         List<Candidatura> candidaturas = leerTodas();
         boolean eliminada = candidaturas.removeIf(candidatura -> candidatura.id() == id);
@@ -90,6 +140,14 @@ public class GestorArchivos {
         return eliminada;
     }
 
+    /**
+     * Importa candidaturas desde un archivo CSV.
+     *
+     * @param archivoCsv ruta del archivo CSV
+     * @return número de candidaturas importadas
+     * @throws IOException si no se puede leer el archivo
+     * @throws IllegalArgumentException si alguna fila no es válida
+     */
     public int importar(Path archivoCsv) throws IOException {
         if (!Files.isRegularFile(archivoCsv)) {
             throw new IOException("No se encuentra el archivo CSV: " + archivoCsv);

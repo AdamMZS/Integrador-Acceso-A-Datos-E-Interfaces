@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"model","l":"Candidatura"},{"p":"cli","l":"ControladorCLI"},{"p":"model","l":"EstadoCandidatura"},{"p":"mapper","l":"GestionCandidaturas"},{"p":"dao","l":"GestorArchivos"},{"p":"main","l":"Main"},{"p":"Exception","l":"TrackerException"}];updateSearchResults();
