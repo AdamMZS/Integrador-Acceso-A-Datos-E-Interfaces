@@ -1,8 +1,9 @@
 package dao;
 
+import mapper.GestionCandidaturas;
 import model.Candidatura;
 import model.EstadoCandidatura;
-
+import Exception.TrackerException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -143,54 +144,41 @@ public class GestorArchivos {
     /**
      * Importa candidaturas desde un archivo CSV.
      *
-     * @param archivoCsv ruta del archivo CSV
      * @return número de candidaturas importadas
      * @throws IOException si no se puede leer el archivo
      * @throws IllegalArgumentException si alguna fila no es válida
      */
-    public int importar(Path archivoCsv) throws IOException {
-        if (!Files.isRegularFile(archivoCsv)) {
-            throw new IOException("No se encuentra el archivo CSV: " + archivoCsv);
+    public int importar(Path csv) throws IOException {
+        if (!Files.exists(csv)) {
+            throw new IllegalArgumentException("No se encontró el archivo: " + csv);
         }
-
-        List<String> lineas = Files.readAllLines(archivoCsv, StandardCharsets.UTF_8);
-        List<Candidatura> candidaturas = leerTodas();
-        long siguienteId = candidaturas.stream().mapToLong(Candidatura::id).max().orElse(0) + 1;
-        Map<String, Integer> columnas = null;
+        List<String> lineas = Files.readAllLines(csv, StandardCharsets.UTF_8);
+        List<Candidatura> todas = new ArrayList<>(leerTodas());
+        long siguiente = todas.stream().mapToLong(Candidatura::id).max().orElse(0L) + 1;
         int importadas = 0;
 
         for (int i = 0; i < lineas.size(); i++) {
-            String linea = lineas.get(i);
-            if (linea.isBlank()) {
+            String linea = lineas.get(i).replace("\uFEFF", "").trim();
+            if (linea.isEmpty() || (i == 0 && esCabecera(linea))) {
                 continue;
             }
-            if (i == 0) {
-                linea = quitarBOM(linea);
-            }
-
-            List<String> campos = parsearCsv(linea);
-            if (columnas == null && esCabecera(campos)) {
-                columnas = mapearCabecera(campos);
-                validarCabecera(columnas, archivoCsv, i + 1);
-                continue;
-            }
-
             try {
-                Candidatura candidatura = desdeCsv(campos, columnas, siguienteId++);
-                candidaturas.add(candidatura);
+                Candidatura c = GestionCandidaturas.desdeLinea(linea);
+                todas.add(new Candidatura(siguiente++, c.titulo(), c.empresa(), c.estadoCandidatura(),
+                        c.fechaPostulacion(), c.enlace(), c.notas()));
                 importadas++;
-            } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException(
-                        "Error en " + archivoCsv + ", línea " + (i + 1) + ": " + e.getMessage(), e);
+            } catch (TrackerException e) {
+                throw new IllegalArgumentException("Error en " + csv + ", línea " + (i + 1) + ": " + e.getMessage());
             }
         }
 
-        if (importadas > 0) {
-            guardarTodas(candidaturas);
-        }
+        guardarTodas(todas);
         return importadas;
     }
 
+    private boolean esCabecera(String linea) {
+        return linea.toLowerCase(Locale.ROOT).startsWith("id;");
+    }
     private Candidatura desdeLinea(String linea) {
         String[] campos = linea.split(SEPARADOR, -1);
         if (campos.length != N_CAMPOS) {

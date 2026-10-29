@@ -1,2 +1,0 @@
-1;Desarrollador Java;Acme;pendiente;28/10/2026;;
-2;Desarrollador PRUEBA PREUBA;Acme;pendiente;29/10/2026;;

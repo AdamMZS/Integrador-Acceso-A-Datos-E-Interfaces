@@ -1,0 +1,16 @@
+id;titulo;empresa;estado;fechaPostulacion;enlace;notas
+1;Desarrollador Java Junior;Indra;pendiente;02/10/2026;https://www.indra.es/empleo/1;Oferta vista en LinkedIn
+2;Analista programador;Accenture;pendiente;05/10/2026;https://www.accenture.com/es-es/careers/1;Pendiente de respuesta
+3;Desarrollador backend Java;Sopra Steria;pendiente;08/10/2026;;Enviado desde la web
+4;Ingeniero de software;Capgemini;pendiente;14/10/2026;;Recomendado por un contacto
+5;Desarrollador Java;Indra;entrevista;01/08/2026;https://www.indra.es/empleo/2;Entrevista técnica el 10/08
+6;Consultor SAP Java;Accenture;entrevista;20/08/2026;;Entrevista telefónica superada
+7;Desarrollador Spring Boot;BBVA;entrevista;03/09/2026;https://www.bbva.com/empleo/3;Segunda entrevista pendiente
+8;Desarrollador Full Stack;Telefonica;entrevista;22/09/2026;;Prueba técnica enviada
+9;Desarrollador Java Senior;Sopra Steria;rechazado;31/07/2026;;Sin respuesta tras la entrevista
+10;Backend Developer;Capgemini;rechazado;04/08/2026;;Perfil no encaja con la oferta
+11;Analista QA Java;Indra;rechazado;12/08/2026;https://www.indra.es/empleo/4;Rechazo por experiencia
+12;Desarrollador Java Junior;BBVA;rechazado;30/09/2026;;Plazas cubiertas
+13;Desarrollador Java;Accenture;aceptado;30/07/2026;;Oferta aceptada, incorporación en septiembre
+14;Desarrollador Backend Java;Telefonica;aceptado;18/09/2026;;Contrato firmado
+15;Ingeniero de software Java;BBVA;aceptado;09/10/2026;https://www.bbva.com/empleo/5;Oferta aceptada
