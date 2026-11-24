@@ -40,6 +40,20 @@ public class CandidaturaDAO {
             throw new RuntimeException(e);
         }
     }
+    public Candidatura buscarPorId(long id){
+        String sql="SELECT id,titulo,empresa,estado_candidatura,fecha_postulacion,enlace,notas FROM candidaturas WHERE id= ?";
+        try(Connection conn=ConexionDb.obtenerConexion();
+            PreparedStatement pstm=conn.prepareStatement(sql)) {
+            pstm.setLong(1,id);
+            try(ResultSet rs=pstm.executeQuery()){
+                if (rs.next())
+                    return mapearFila(rs);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
 
     private Candidatura mapearFila(ResultSet rs) throws SQLException {
         long id = rs.getLong("id");
