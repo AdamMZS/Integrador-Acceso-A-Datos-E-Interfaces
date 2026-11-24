@@ -1,11 +1,12 @@
 package cli;
 
-import dao.GestorArchivos;
+import dao.CandidaturaDAO;
 import model.Candidatura;
 import model.EstadoCandidatura;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -23,23 +24,24 @@ public class ControladorCLI {
     private static final DateTimeFormatter FORM_FECHA =
             DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT);
 
-    private final GestorArchivos gestor;
+    private final CandidaturaDAO gestor;
 
+    public ControladorCLI() {
+        this(new CandidaturaDAO());
+    }
+
+    public ControladorCLI(CandidaturaDAO gestor) {
+        this.gestor = gestor;
+    }
     /**
      * Crea el controlador con el gestor de archivos predeterminado.
      */
-    public ControladorCLI() {
-        this(new GestorArchivos());
-    }
 
     /**
      * Crea el controlador con un gestor de archivos.
      *
      * @param gestor gestor usado para acceder a las candidaturas
      */
-    public ControladorCLI(GestorArchivos gestor) {
-        this.gestor = gestor;
-    }
 
     /**
      * Ejecuta la operación indicada en los argumentos.
@@ -63,18 +65,18 @@ public class ControladorCLI {
                 case "añadir", "anadir" -> añadir(args);
                 case "ver" -> ver(args);
                 case "borrar" -> borrar(args);
-                case "importar" -> importar(args);
+             //   case "importar" -> importar(args);
                 case "ayuda", "--help", "-h" -> ayuda(args);
                 default -> error("Operación desconocida '" + args[0] + "'. Consulta la ayuda con 'ayuda'.");
             };
-        } catch (IOException e) {
+        } catch (SQLException e) {
             return error("No se pudo acceder al archivo: " + e.getMessage());
         } catch (IllegalArgumentException e) {
             return error(e.getMessage());
         }
     }
 
-    private int listar(String[] args) throws IOException {
+    private int listar(String[] args) throws SQLException {
         Map<String, String> opciones = opciones(args, 1);
         validarOpciones(opciones, "estado", "empresa");
         String filtroEstado = opciones.get("estado");
@@ -96,7 +98,7 @@ public class ControladorCLI {
         return 0;
     }
 
-    private int añadir(String[] args) throws IOException {
+    private int añadir(String[] args) throws SQLException {
         Map<String, String> opciones = opciones(args, 1);
         validarOpciones(opciones, "titulo", "empresa", "estado", "fecha");
         exigir(opciones, "titulo", "empresa", "estado");
@@ -113,13 +115,12 @@ public class ControladorCLI {
             }
         }
 
-        long id = gestor.siguienteId();
-        gestor.añadir(new Candidatura(id, titulo, empresa, estado, fecha, "", ""));
-        System.out.println("Candidatura añadida con ID " + id + ".");
+        gestor.anhadir(new Candidatura(0, titulo, empresa, estado, fecha, "", ""));
+        System.out.println("Candidatura añadida correctamente.");
         return 0;
     }
 
-    private int ver(String[] args) throws IOException {
+    private int ver(String[] args) throws SQLException {
         if (args.length != 2) {
             throw new IllegalArgumentException("Uso: ver <id>. Ejemplo: ver 13");
         }
@@ -139,19 +140,19 @@ public class ControladorCLI {
         return 0;
     }
 
-    private int borrar(String[] args) throws IOException {
+    private int borrar(String[] args) throws SQLException {
         if (args.length != 2) {
             throw new IllegalArgumentException("Uso: borrar <id>. Ejemplo: borrar 13");
         }
         long id = parsearId(args[1]);
-        if (!gestor.borrar(id)) {
+        if (!gestor.eliminar(id)) {
             throw new IllegalArgumentException("No existe ninguna candidatura con ID " + id + ".");
         }
         System.out.println("Candidatura " + id + " eliminada.");
         return 0;
     }
 
-    private int importar(String[] args) throws IOException {
+   /* private int importar(String[] args) throws IOException {
         if (args.length != 2) {
             throw new IllegalArgumentException("Uso: importar <archivo.csv>. Ejemplo: importar candidaturas.csv");
         }
@@ -159,6 +160,8 @@ public class ControladorCLI {
         System.out.println(importadas + " candidatura(s) importada(s).");
         return 0;
     }
+    /**/
+
 
     private int ayuda(String[] args) {
         if (args.length != 1) {

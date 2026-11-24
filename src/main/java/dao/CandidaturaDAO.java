@@ -28,7 +28,7 @@ public class CandidaturaDAO {
     }
     //METODO PARA ANHADIR CANDIDATURA
     public void anhadir(Candidatura candidatura){
-        String sql="INSER INTO candidaturas (id,titulo,empresa,estado_candidatura,fecha_postulacion,enlace,notas) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql="INSERT INTO candidaturas (titulo,empresa,estado_candidatura,fecha_postulacion,enlace,notas) VALUES(?, ?, ?, ?, ?, ?)";
         try(Connection conn=ConexionDb.obtenerConexion();
             PreparedStatement pstm= conn.prepareStatement(sql);){
             pstm.setString(1,candidatura.titulo());
