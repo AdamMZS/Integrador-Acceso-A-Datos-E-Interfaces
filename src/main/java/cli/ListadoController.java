@@ -92,14 +92,28 @@ public class ListadoController {
 
             {
                 contenedor.setAlignment(Pos.CENTER);
-                btnVer.setStyle("-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-font-size: 11px; -fx-cursor: hand;");
-                btnEditar.setStyle("-fx-background-color: #F3F4F6; -fx-text-fill: #374151; -fx-font-size: 11px; -fx-cursor: hand;");
-                btnEliminar.setStyle("-fx-background-color: #FEE2E2; -fx-text-fill: #DC2626; -fx-font-size: 11px; -fx-cursor: hand;");
+                btnVer.getStyleClass().add("btn-accion-ver");
+                btnEditar.getStyleClass().add("btn-accion-editar");
+                btnEliminar.getStyleClass().add("btn-accion-borrar");
 
-                btnVer.setOnAction(e -> abrirVistaConCandidatura("/detalles.fxml", getTableView().getItems().get(getIndex()), e));
-                btnEditar.setOnAction(e -> abrirVistaConCandidatura("/formulario.fxml", getTableView().getItems().get(getIndex()), e));
-                btnEliminar.setOnAction(e -> abrirVistaConCandidatura("/confirmar_eliminacion.fxml", getTableView().getItems().get(getIndex()), e));
-            }
+                btnVer.setOnAction(e -> cambiarVista("/detalles.fxml", e));
+                btnEditar.setOnAction(e -> cambiarVista("/formulario.fxml", e));
+                btnEliminar.setOnAction(e -> {
+                    Candidatura seleccionada = getTableView().getItems().get(getIndex());
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/confirmar_eliminacion.fxml"));
+                        Parent root = loader.load();
+
+                        ConfirmarEliminacionController controller = loader.getController();
+                        controller.setCandidatura(seleccionada);
+
+                        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                });            }
 
             @Override
             protected void updateItem(Void item, boolean empty) {
@@ -120,14 +134,12 @@ public class ListadoController {
     }
 
     private void configurarFiltros() {
-        // Combo Estado
         cmbEstado.getItems().add("Estado: Todos");
         for (EstadoCandidatura estado : EstadoCandidatura.values()) {
             cmbEstado.getItems().add(estado.name());
         }
         cmbEstado.getSelectionModel().selectFirst();
 
-        // Combo Empresa
         cmbEmpresa.getItems().add("Empresa: Todas");
         List<String> empresas = masterData.stream()
                 .map(Candidatura::empresa)
@@ -210,11 +222,5 @@ public class ListadoController {
             System.err.println("Error al navegar a " + rutaFxml);
             e.printStackTrace();
         }
-    }
-
-    private void abrirVistaConCandidatura(String rutaFxml, Candidatura candidatura, ActionEvent event) {
-        // Cuando tengas los controladores de detalles, formulario y eliminar,
-        // aquí les pasarás el objeto `candidatura` seleccionado.
-        cambiarVista(rutaFxml, event);
     }
 }

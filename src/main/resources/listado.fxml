@@ -165,7 +165,7 @@
                                 <TableColumn fx:id="colEmpresa" prefWidth="160.0" text="Empresa" />
                                 <TableColumn fx:id="colEstado" prefWidth="140.0" text="Estado" />
                                 <TableColumn fx:id="colFecha" prefWidth="160.0" text="Fecha de postulacion" />
-                                <TableColumn fx:id="colAcciones" maxWidth="150.0" minWidth="120.0" prefWidth="130.0" text="Acciones" />
+                                <TableColumn fx:id="colAcciones" maxWidth="185.0" minWidth="185.0" prefWidth="185.0" text="Acciones" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

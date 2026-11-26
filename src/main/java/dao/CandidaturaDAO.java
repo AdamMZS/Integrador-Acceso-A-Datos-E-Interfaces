@@ -59,7 +59,7 @@ public class CandidaturaDAO {
     }
     //METODO PARA ELIMINAR CANDIDATURA
     public boolean eliminar(Long id){
-        String sql="DELETE FROM candidatura WHERE id=?";
+        String sql="DELETE FROM candidaturas WHERE id=?";
         try(Connection conn=ConexionDb.obtenerConexion();
             PreparedStatement pstm= conn.prepareStatement(sql)){
 
