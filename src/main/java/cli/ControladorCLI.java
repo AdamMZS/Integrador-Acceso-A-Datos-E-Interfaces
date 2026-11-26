@@ -152,15 +152,65 @@ public class ControladorCLI {
         return 0;
     }
 
-   /* private int importar(String[] args) throws IOException {
-        if (args.length != 2) {
-            throw new IllegalArgumentException("Uso: importar <archivo.csv>. Ejemplo: importar candidaturas.csv");
+    public List<Candidatura> importar(java.nio.file.Path rutaCsv) throws java.io.IOException, SQLException {
+        java.time.format.DateTimeFormatter formatoFecha =
+                java.time.format.DateTimeFormatter.ofPattern("dd/MM/uuuu")
+                        .withResolverStyle(java.time.format.ResolverStyle.STRICT);
+
+        List<Candidatura> importadas = new java.util.ArrayList<>();
+        List<String> lineas = java.nio.file.Files.readAllLines(rutaCsv, java.nio.charset.StandardCharsets.UTF_8);
+
+        if (lineas.isEmpty()) {
+            throw new IllegalArgumentException("El archivo CSV está vacío.");
         }
-        int importadas = gestor.importar(Path.of(args[1]));
-        System.out.println(importadas + " candidatura(s) importada(s).");
-        return 0;
+
+        // Comprobamos la cabecera obligatoria (quitando posible BOM de Excel)
+        String cabecera = lineas.get(0).replace("\uFEFF", "").trim();
+        if (!cabecera.equalsIgnoreCase("id;titulo;empresa;estado;fechaPostulacion;enlace;notas")) {
+            throw new IllegalArgumentException("Cabecera incorrecta. Se esperaba: id;titulo;empresa;estado;fechaPostulacion;enlace;notas");
+        }
+
+        for (int i = 1; i < lineas.size(); i++) {
+            String linea = lineas.get(i).trim();
+            if (linea.isEmpty()) continue; // Saltar líneas en blanco
+
+            // El -1 mantiene las columnas vacías al final (ej: ;;)
+            String[] campos = linea.split(";", -1);
+            if (campos.length != 7) {
+                throw new IllegalArgumentException("Error en la línea " + (i + 1) + ": debe tener 7 columnas separadas por ';'.");
+            }
+
+            String titulo = campos[1].trim();
+            String empresa = campos[2].trim();
+            if (titulo.isEmpty() || empresa.isEmpty()) {
+                throw new IllegalArgumentException("Error en la línea " + (i + 1) + ": título y empresa son obligatorios.");
+            }
+
+            model.EstadoCandidatura estado;
+            try {
+                estado = model.EstadoCandidatura.valueOf(campos[3].trim().toUpperCase(java.util.Locale.ROOT));
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("Error en la línea " + (i + 1) + ": estado '" + campos[3] + "' no válido.");
+            }
+
+            java.time.LocalDate fecha;
+            try {
+                fecha = java.time.LocalDate.parse(campos[4].trim(), formatoFecha);
+            } catch (java.time.format.DateTimeParseException e) {
+                throw new IllegalArgumentException("Error en la línea " + (i + 1) + ": fecha '" + campos[4] + "' no válida (usa dd/MM/yyyy).");
+            }
+
+            String enlace = campos[5].trim();
+            String notas = campos[6].trim();
+
+            Candidatura nueva = new Candidatura(0L, titulo, empresa, estado, fecha, enlace, notas);
+            gestor.anhadir(nueva); // Guarda en MySQL
+            importadas.add(nueva);
+        }
+
+        return importadas;
     }
-    /**/
+
 
 
     private int ayuda(String[] args) {
