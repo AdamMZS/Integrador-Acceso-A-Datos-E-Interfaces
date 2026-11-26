@@ -13,7 +13,7 @@ import java.util.Locale;
 public class CandidaturaDAO {
 
     public boolean modificar(Candidatura candidatura) {
-        String sql = "UPDATE candidaturas SET titulo=?, empresa=?, estado=?, fecha_postulacion=?, enlace=?, notas=? WHERE id=?";
+        String sql = "UPDATE candidaturas SET titulo=?, empresa=?, estado_candidatura=?, fecha_postulacion=?, enlace=?, notas=? WHERE id=?";
         try (Connection conn = ConexionDb.obtenerConexion();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
 

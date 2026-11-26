@@ -1,5 +1,6 @@
 package cli;
 
+import dao.CandidaturaDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,9 +65,14 @@ public class DetalleController {
     private Candidatura candidatura;
     @FXML
     private Hyperlink linkOferta;
+    private final CandidaturaDAO candidaturaDAO = new CandidaturaDAO();
+
     public void initialize() {
         ConfigurarNav();
         btnVolver.setOnAction(event -> cambiarVista("/listado.fxml",event));
+        btnEliminar.setOnAction(this::eliminar);
+        btnEditar.setOnAction(this::editar);
+
     }
     private void ConfigurarNav(){
         btnNavInicio.setOnAction(e -> cambiarVista("/inicio.fxml",e ));
@@ -111,6 +117,28 @@ public class DetalleController {
         } else {
             linkOferta.setText("Sin enlace disponible");
             linkOferta.setDisable(true);
+        }
+    }
+    private void eliminar(ActionEvent event) {
+        if (candidatura != null) {
+            candidaturaDAO.eliminar(candidatura.id());
+            cambiarVista("/listado.fxml", event);
+        }
+    }
+    private void editar(ActionEvent event) {
+        if (candidatura == null) return;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/formulario.fxml"));
+            Parent root = loader.load();
+
+            FormularioController fc = loader.getController();
+            fc.setCandidatura(candidatura);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }
