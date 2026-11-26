@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/27" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <VBox prefWidth="230.0" spacing="20.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E7EB; -fx-border-width: 0 1 0 0;">
             <padding>
@@ -50,7 +50,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/home%20(1).png" />
+                              <Image url="@images/home%20(2).png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -64,7 +64,14 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                        <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand; -fx-padding: 0 12 0 12;" text="+ Anadir" />
+                        <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand; -fx-padding: 0 12 0 12;" text="Añadir">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/add%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                     </children>
                 </VBox>
                 <Region VBox.vgrow="ALWAYS" />
@@ -125,13 +132,20 @@
                                 <Region HBox.hgrow="ALWAYS" />
                                 <Button fx:id="btnImportarCSV" graphicTextGap="8.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 14 0 14;" text="Importar CSV">
                            <graphic>
-                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/file-import.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                                <Button fx:id="btnAnadirCandidatura" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 16 0 16;" text="+ Anadir candidatura" />
+                                <Button fx:id="btnAnadirCandidatura" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 16 0 16;" text="Añadir candidatura">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/add%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-background-radius: 8;">
@@ -160,7 +174,7 @@
                         </TableView>
                         <HBox alignment="CENTER_LEFT" spacing="8.0">
                             <children>
-                                <Label fx:id="lblContador" style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mostrando 1-8 de 13 candidaturas" />
+                                <Label fx:id="lblContador" style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mostrando candidaturas:" />
                                 <Region HBox.hgrow="ALWAYS" />
                                 <Button fx:id="btnPaginaAnterior" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 4; -fx-text-fill: #6B7280; -fx-cursor: hand;" text="&lt;" />
                                 <Button fx:id="btnPagina1" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #EEF2FF; -fx-border-color: #C7D2FE; -fx-border-radius: 4; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-cursor: hand;" text="1" />
