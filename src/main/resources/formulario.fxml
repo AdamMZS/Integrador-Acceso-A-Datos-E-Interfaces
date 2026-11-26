@@ -44,9 +44,30 @@
             </HBox>
             <VBox spacing="6.0">
                 <children>
-                    <Button fx:id="btnNavInicio" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand;" text="Inicio" />
-                    <Button fx:id="btnNavCandidaturas" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand;" text="Candidaturas" />
-                    <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="+ Anadir" />
+                    <Button fx:id="btnNavInicio" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand;" text="Inicio">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                    <Button fx:id="btnNavCandidaturas" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand;" text="Candidaturas">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/menu-burger.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                    <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Añadir">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                 </children>
             </VBox>
             <Region VBox.vgrow="ALWAYS" />
@@ -82,7 +103,7 @@
                 <children>
                     <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mi espacio de trabajo" />
                     <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12px;" text="/" />
-                    <Label fx:id="lblBreadcrumbActual" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Anadir candidatura" />
+                    <Label fx:id="lblBreadcrumbActual" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Añadir candidatura" />
                     <Region HBox.hgrow="ALWAYS" />
                     <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Tracker de Candidaturas Laborales" />
                 </children>
@@ -94,7 +115,7 @@
                 <children>
                     <VBox spacing="4.0">
                         <children>
-                            <Label fx:id="lblTituloPagina" style="-fx-text-fill: #111827;" text="Anadir candidatura">
+                            <Label fx:id="lblTituloPagina" style="-fx-text-fill: #111827;" text="Añadir candidatura">
                                 <font>
                                     <Font name="System Bold" size="22.0" />
                                 </font>
@@ -174,7 +195,7 @@
                             <VBox spacing="6.0">
                                 <children>
                                     <Label style="-fx-text-fill: #374151; -fx-font-weight: bold; -fx-font-size: 12px;" text="Notas (opcional)" />
-                                    <TextArea fx:id="txtNotas" prefHeight="95.0" promptText="Anade detalles de la oferta o informacion que quieras recordar..." style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6;" wrapText="true" />
+                                    <TextArea fx:id="txtNotas" prefHeight="95.0" promptText="Añade detalles de la oferta o informacion que quieras recordar..." style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6;" wrapText="true" />
                                 </children>
                             </VBox>
                             <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-border-color: #F3F4F6; -fx-border-width: 1 0 0 0; -fx-padding: 16 0 0 0;">
@@ -182,7 +203,14 @@
                                     <Label fx:id="lblNotaInferior" style="-fx-text-fill: #9CA3AF; -fx-font-size: 11px;" text="Puedes actualizar estos datos en cualquier momento." />
                                     <Region HBox.hgrow="ALWAYS" />
                                     <Button fx:id="btnCancelar" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 18 0 18;" text="Cancelar" />
-                                    <Button fx:id="btnGuardar" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 20 0 20;" text="Guardar" />
+                                    <Button fx:id="btnGuardar" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 20 0 20;" text="Guardar">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/check-circle.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
                                 </children>
                             </HBox>
                         </children>

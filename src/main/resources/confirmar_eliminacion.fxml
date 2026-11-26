@@ -3,26 +3,34 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="440.0" spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-radius: 12; -fx-background-radius: 12;" xmlns="http://javafx.com/javafx/27" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefWidth="440.0" spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-radius: 12; -fx-background-radius: 12;" xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
     </padding>
     <children>
         <HBox alignment="CENTER_LEFT">
             <children>
-                <Label fx:id="iconPapelera" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #FEE2E2; -fx-text-fill: #DC2626; -fx-background-radius: 8; -fx-font-weight: bold;" text="!" />
+                <Label fx:id="iconPapelera" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #FEE2E2; -fx-text-fill: #DC2626; -fx-background-radius: 8; -fx-font-weight: bold;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/trash.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Label>
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnCerrarX" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #9CA3AF; -fx-font-size: 14px; -fx-cursor: hand;" text="X" />
             </children>
         </HBox>
         <VBox spacing="6.0">
             <children>
-                <Label style="-fx-text-fill: #111827;" text="Eliminar esta candidatura?">
+                <Label style="-fx-text-fill: #111827;" text="¿Eliminar esta candidatura?">
                     <font>
                         <Font name="System Bold" size="17.0" />
                     </font>
@@ -50,7 +58,14 @@
             </padding>
             <children>
                 <Button fx:id="btnCancelar" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 16 0 16;" text="Cancelar" />
-                <Button fx:id="btnConfirmarEliminar" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #DC2626; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 18 0 18;" text="Eliminar" />
+                <Button fx:id="btnConfirmarEliminar" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #DC2626; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 18 0 18;" text="Eliminar">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/trash.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             </children>
         </HBox>
     </children>

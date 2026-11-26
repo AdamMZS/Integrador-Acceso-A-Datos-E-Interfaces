@@ -43,7 +43,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/home%20(2).png" />
+                              <Image url="@images/home.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
@@ -59,7 +59,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/add%20(1).png" />
+                              <Image url="@images/add.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
