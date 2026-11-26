@@ -90,6 +90,13 @@ public class FormularioController {
 
     @FXML
     private TextField txtTitulo;
+    public void initialize() {
+        btnNavInicio.setOnAction(e -> cambiarVista("/inicio.fxml", e));
+        btnNavCandidaturas.setOnAction(e -> cambiarVista("/listado.fxml", e));
+        btnNavAnadir.setOnAction(e -> cambiarVista("/formulario.fxml", e));
+        btnCancelar.setOnAction(e -> cambiarVista("/listado.fxml", e));
+        btnGuardar.setOnAction(e -> guardar(e));
+    }
     private void cambiarVista(String rutaFxml, ActionEvent event){
         try{
             FXMLLoader loader=new FXMLLoader(getClass().getResource(rutaFxml));

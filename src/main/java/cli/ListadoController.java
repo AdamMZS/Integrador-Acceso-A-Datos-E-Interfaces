@@ -96,7 +96,10 @@ public class ListadoController {
                 btnEditar.getStyleClass().add("btn-accion-editar");
                 btnEliminar.getStyleClass().add("btn-accion-borrar");
 
-                btnVer.setOnAction(e -> cambiarVista("/detalles.fxml", e));
+                btnVer.setOnAction(e -> {
+                    Candidatura seleccionada = getTableView().getItems().get(getIndex());
+                    abrirConCandidatura("/detalles.fxml", e, seleccionada);
+                });
                 btnEditar.setOnAction(e -> cambiarVista("/formulario.fxml", e));
                 btnEliminar.setOnAction(e -> {
                     Candidatura seleccionada = getTableView().getItems().get(getIndex());
@@ -158,7 +161,23 @@ public class ListadoController {
 
         actualizarTablaYPaginacion();
     }
+    private void abrirConCandidatura(String rutaFxml, ActionEvent event, Candidatura c) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFxml));
+            Parent root = loader.load();
 
+            Object controller = loader.getController();
+            if (controller instanceof DetalleController dc) dc.setCandidatura(c);
+            if (controller instanceof FormularioController fc) fc.setCandidatura(c);
+            if (controller instanceof ConfirmarEliminacionController cec) cec.setCandidatura(c);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     private void aplicarFiltros() {
         String texto = txtBuscar.getText() == null ? "" : txtBuscar.getText().toLowerCase().trim();
         String estadoSel = cmbEstado.getValue();
