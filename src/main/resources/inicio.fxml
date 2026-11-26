@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1200.0" spacing="28.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/27" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" spacing="14.0">
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" smooth="true">
+               <image>
+                  <Image url="@images/logo2.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER_LEFT" spacing="2.0">
+               <children>
+                  <Label style="-fx-text-fill: #111827;" text="Postula">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label minWidth="-Infinity" style="-fx-text-fill: #6B7280; -fx-font-size: 13px;" text="Por Alvaro Gallardo y Adam Mzouri" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" spacing="12.0">
+         <children>
+            <Button fx:id="btnEntrar" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-radius: 6; -fx-cursor: hand;" text="Entrar" />
+            <Button fx:id="btnSalir" mnemonicParsing="false" prefHeight="40.0" prefWidth="280.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 13px; -fx-cursor: hand;" text="Salir" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

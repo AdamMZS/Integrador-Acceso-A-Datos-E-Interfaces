@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <VBox prefWidth="230.0" spacing="20.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E7EB; -fx-border-width: 0 1 0 0;">
+            <padding>
+                <Insets bottom="20.0" left="16.0" right="16.0" top="20.0" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="true">
+                            <image>
+                                <Image url="@images/logo2.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="1.0">
+                            <children>
+                                <Label graphicTextGap="6.0" style="-fx-text-fill: #111827;" text="Postula">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Por Alvaro y Adam" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <VBox spacing="6.0">
+                    <children>
+                        <Button fx:id="btnNavInicio" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand;" text="Inicio">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                        <Button fx:id="btnNavCandidaturas" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Candidaturas">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/menu-burger.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                        <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand;" text="Añadir">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                    </children>
+                </VBox>
+                <Region VBox.vgrow="ALWAYS" />
+                <VBox spacing="10.0" style="-fx-border-color: #E5E7EB; -fx-border-width: 1 0 0 0;">
+                    <padding>
+                        <Insets top="14.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 10px; -fx-font-weight: bold;" text="ESPACIO PERSONAL" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #E0E7FF; -fx-text-fill: #4F46E5; -fx-background-radius: 16; -fx-font-weight: bold;" text="U" />
+                                <VBox>
+                                    <children>
+                                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Usuario" />
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Mi espacio de trabajo" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="18.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="48.0" spacing="8.0" style="-fx-border-color: #E5E7EB; -fx-border-width: 0 0 1 0;">
+                    <padding>
+                        <Insets left="28.0" right="28.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mi espacio de trabajo" />
+                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12px;" text="/" />
+                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Importar CSV" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Tracker de Candidaturas Laborales" />
+                    </children>
+                </HBox>
+                <VBox spacing="18.0" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="24.0" left="36.0" right="36.0" top="4.0" />
+                    </padding>
+                    <children>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label style="-fx-text-fill: #111827;" text="Importar CSV">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Label>
+                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 13px;" text="Añade varias candidaturas desde un archivo CSV." />
+                            </children>
+                        </VBox>
+                        <HBox spacing="22.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="16.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-radius: 10; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets bottom="22.0" left="24.0" right="24.0" top="20.0" />
+                                    </padding>
+                                    <children>
+                                        <Label fx:id="lblTituloTarjetaIzq" graphicTextGap="10.0" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 14px;" text="Selecciona tu archivo">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/file-import.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                                        <VBox fx:id="panelSeleccionInicial" alignment="CENTER" spacing="10.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #D1D5DB; -fx-border-style: dashed; -fx-border-radius: 8; -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
+                                            <padding>
+                                                <Insets bottom="28.0" left="20.0" right="20.0" top="28.0" />
+                                            </padding>
+                                            <children>
+                                                <Label fx:id="lblArchivoSeleccionado" style="-fx-text-fill: #4B5563; -fx-font-size: 12px;" text="Ningun archivo seleccionado" />
+                                                <Button fx:id="btnSeleccionarArchivo" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #111827; -fx-font-weight: bold; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 16 0 16;" text="Seleccionar archivo" />
+                                                <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 11px;" text="Archivo con extension .csv" />
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="panelResultadoExito" managed="false" spacing="12.0" visible="false">
+                                            <children>
+                                                <VBox spacing="4.0" style="-fx-background-color: #ECFDF5; -fx-border-color: #A7F3D0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12 14 12 14;">
+                                                    <children>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/check-circle.png" />
+                                             </image>
+                                          </ImageView>
+                                                        <Label fx:id="lblMensajeExito" graphicTextGap="6.0" style="-fx-text-fill: #047857; -fx-font-weight: bold; -fx-font-size: 12px;" text="Se han importado 0 candidaturas correctamente" />
+                                                        <Label style="-fx-text-fill: #059669; -fx-font-size: 11px;" text="Ya estan disponibles en tu listado." />
+                                                    </children>
+                                                </VBox>
+                                                <Label style="-fx-text-fill: #374151; -fx-font-weight: bold; -fx-font-size: 12px;" text="Candidaturas anadidas" />
+                                                <VBox fx:id="listaCandidaturasImportadas" spacing="6.0" style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10;" />
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="panelResultadoError" managed="false" spacing="12.0" visible="false">
+                                            <children>
+                                                <VBox spacing="4.0" style="-fx-background-color: #FEF2F2; -fx-border-color: #FECACA; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12 14 12 14;">
+                                                    <children>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/exclamation.png" />
+                                             </image>
+                                          </ImageView>
+                                                        <Label fx:id="lblMensajeError" graphicTextGap="6.0" style="-fx-text-fill: #DC2626; -fx-font-weight: bold; -fx-font-size: 12px;" text="Error al importar el archivo CSV" />
+                                                        <Label style="-fx-text-fill: #B91C1C; -fx-font-size: 11px;" text="No se ha importado ningun registro." />
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="6.0" style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
+                                                    <children>
+                                                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Corrige el archivo y vuelve a intentarlo" />
+                                                        <Label fx:id="lblDetalleError" style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Revisa el formato de las columnas y las fechas (dd/MM/yyyy)." wrapText="true" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                            <children>
+                                                <Button fx:id="btnSecundario" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 16 0 16;" text="Cancelar" />
+                                                <Button fx:id="btnPrincipal" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 18 0 18;" text="Importar" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <VBox prefWidth="400.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-radius: 10; -fx-background-radius: 10;">
+                                    <padding>
+                                        <Insets bottom="22.0" left="22.0" right="22.0" top="20.0" />
+                                    </padding>
+                                    <children>
+                                        <Label graphicTextGap="10.0" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 14px;" text="Formato esperado">
+                                 <graphic>
+                                    <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/file-import.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Label>
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Incluye la cabecera y respeta el orden de las columnas. Utiliza punto y coma (;) como separador." wrapText="true" />
+                                        <VBox spacing="8.0" style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 14;">
+                                            <children>
+                                                <Label style="-fx-text-fill: #9CA3AF; -fx-font-weight: bold; -fx-font-size: 10px;" text="CABECERA OBLIGATORIA" />
+                                                <Label style="-fx-text-fill: #111827; -fx-font-size: 11px; -fx-font-weight: bold;" text="id;titulo;empresa;estado;fechaPostulacion;enlace;notas" wrapText="true" />
+                                                <Label style="-fx-text-fill: #9CA3AF; -fx-font-weight: bold; -fx-font-size: 10px; -fx-padding: 6 0 0 0;" text="EJEMPLO DE FILA" />
+                                                <Label style="-fx-text-fill: #4B5563; -fx-font-size: 11px;" text="13;Desarrollador Java;Indra;entrevista;20/10/2026;;Preparar entrevista" wrapText="true" />
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="4.0" style="-fx-padding: 4 0 0 0;">
+                                            <children>
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="- Fechas: dd/MM/yyyy - Ejemplo: 20/10/2026" />
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="- Estados en minusculas: pendiente, entrevista, rechazado, aceptado." wrapText="true" />
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="- Enlace y notas pueden quedar vacios." />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

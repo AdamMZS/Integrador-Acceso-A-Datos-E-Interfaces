@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <VBox prefWidth="230.0" spacing="20.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E7EB; -fx-border-width: 0 1 0 0;">
+            <padding>
+                <Insets bottom="20.0" left="16.0" right="16.0" top="20.0" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" smooth="true">
+                            <image>
+                                <Image url="@images/logo2.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="1.0">
+                            <children>
+                                <Label style="-fx-text-fill: #111827;" text="Postula">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Por Alvaro y Adam" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <VBox spacing="6.0">
+                    <children>
+                        <Button fx:id="btnNavInicio" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563;" text="Inicio">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                        <Button fx:id="btnNavCandidaturas" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-background-radius: 6;" text="Candidaturas">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/menu-burger.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                        <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563;" text="Añadir">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                    </children>
+                </VBox>
+                <Region VBox.vgrow="ALWAYS" />
+                <VBox spacing="10.0" style="-fx-border-color: #E5E7EB; -fx-border-width: 1 0 0 0;">
+                    <padding>
+                        <Insets top="14.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 10px; -fx-font-weight: bold;" text="ESPACIO PERSONAL" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #E0E7FF; -fx-text-fill: #4F46E5; -fx-background-radius: 16; -fx-font-weight: bold;" text="U" />
+                                <VBox>
+                                    <children>
+                                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Usuario" />
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Mi espacio de trabajo" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="20.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="48.0" spacing="8.0" style="-fx-border-color: #E5E7EB; -fx-border-width: 0 0 1 0;">
+                    <padding>
+                        <Insets left="28.0" right="28.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mi espacio de trabajo" />
+                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12px;" text="/" />
+                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Detalle de candidatura" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Tracker de Candidaturas Laborales" />
+                    </children>
+                </HBox>
+                <VBox spacing="20.0" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="28.0" left="36.0" right="36.0" top="8.0" />
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <children>
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <Label style="-fx-text-fill: #111827;" text="Detalle de candidatura">
+                                            <font>
+                                                <Font name="System Bold" size="22.0" />
+                                            </font>
+                                        </Label>
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 13px;" text="Consulta la informacion de esta oportunidad." />
+                                    </children>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnVolver" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 0 16 0 16;" text="Volver">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/volver.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                            </children>
+                        </HBox>
+                        <VBox spacing="20.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E5E7EB; -fx-border-radius: 10; -fx-background-radius: 10;">
+                            <padding>
+                                <Insets bottom="24.0" left="28.0" right="28.0" top="24.0" />
+                            </padding>
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="14.0" style="-fx-border-color: #F3F4F6; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 18 0;">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-background-radius: 8; -fx-font-weight: bold;" text="ID" />
+                                        <VBox spacing="2.0">
+                                            <children>
+                                                <Label fx:id="lblTituloPrincipal" style="-fx-text-fill: #111827;" text="Titulo de la candidatura">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lblSubtituloEmpresa" style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Empresa - Candidatura #0" />
+                                            </children>
+                                        </VBox>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="lblBadgeEstadoTop" style="-fx-background-color: #DBEAFE; -fx-text-fill: #1D4ED8; -fx-padding: 4 12 4 12; -fx-background-radius: 12; -fx-font-weight: bold; -fx-font-size: 12px;" text="Estado" />
+                                    </children>
+                                </HBox>
+                                <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 14px;" text="Informacion de la candidatura" />
+                                <HBox spacing="24.0">
+                                    <children>
+                                        <VBox prefWidth="240.0" spacing="4.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="ID" />
+                                                <Label fx:id="lblId" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 13px;" text="#0" />
+                                            </children>
+                                        </VBox>
+                                        <VBox prefWidth="240.0" spacing="4.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Titulo" />
+                                                <Label fx:id="lblTitulo" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 13px;" text="-" />
+                                            </children>
+                                        </VBox>
+                                        <VBox prefWidth="240.0" spacing="4.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Empresa" />
+                                                <Label fx:id="lblEmpresa" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 13px;" text="-" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox spacing="24.0">
+                                    <children>
+                                        <VBox prefWidth="240.0" spacing="4.0">
+                                            <children>
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Estado" />
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Estado" />
+                                                <Label fx:id="lblEstado" style="-fx-background-color: #DBEAFE; -fx-text-fill: #1D4ED8; -fx-padding: 3 10 3 10; -fx-background-radius: 12; -fx-font-weight: bold; -fx-font-size: 11px;" text="-" />
+                                            </children>
+                                        </VBox>
+                                        <VBox prefWidth="240.0" spacing="4.0">
+                                            <children>
+                                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Fecha de postulacion" />
+                                                <Label fx:id="lblFecha" style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 13px;" text="-" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Enlace" />
+                                        <Hyperlink fx:id="linkOferta" style="-fx-text-fill: #4F46E5; -fx-font-size: 13px; -fx-padding: 0;" text="Sin enlace disponible" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="6.0">
+                                    <children>
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Notas" />
+                                        <VBox style="-fx-background-color: #F9FAFB; -fx-border-color: #E5E7EB; -fx-border-radius: 6; -fx-background-radius: 6;">
+                                            <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                            </padding>
+                                            <children>
+                                                <Label fx:id="lblNotas" style="-fx-text-fill: #374151; -fx-font-size: 13px;" text="Sin notas adicionales." wrapText="true" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                                <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-border-color: #F3F4F6; -fx-border-width: 1 0 0 0; -fx-padding: 18 0 0 0;">
+                                    <children>
+                                        <Button fx:id="btnEliminar" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 0 16 0 16;" text="Eliminar">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/trash.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="btnEditar" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 0 18 0 18;" text="Editar">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/pen.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
