@@ -1,0 +1,113 @@
+/* Fondo blanco limpio y sin bordes interiores feos */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+/* Cabecera de la tabla */
+.table-view .column-header-background {
+    -fx-background-color: #F9FAFB;
+    -fx-background-radius: 8 8 0 0;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 42px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #6B7280;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 12;
+}
+
+/* Filas de datos: todas blancas, altas y con línea divisoria fina */
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F3F4F6;
+    -fx-border-width: 0 0 1 0;
+    -fx-cell-size: 52px;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #F9FAFB;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #EEF2FF;
+}
+
+.table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 12 0 12;
+    -fx-text-fill: #111827;
+    -fx-font-size: 13px;
+    -fx-border-color: transparent;
+}
+
+/* Estilo minimalista para el DatePicker y su botón de calendario */
+.date-picker {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #111827;
+    -fx-font-size: 13px;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 0 10 0 6;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 0 6 6 0;
+}
+
+/* Sustituye el icono azul antiguo por uno moderno */
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #6B7280;
+    -fx-shape: "M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z";
+    -fx-scale-shape: true;
+    -fx-pref-width: 14px;
+    -fx-pref-height: 15px;
+}
+
+.date-picker .arrow-button:hover .arrow {
+    -fx-background-color: #4F46E5;
+}
+
+/* Botones de estado (Pendiente, Entrevista, Rechazado, Aceptado) */
+.estado-btn {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D1D5DB;
+    -fx-text-fill: #374151;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.estado-btn:hover {
+    -fx-background-color: #F9FAFB;
+}
+
+.estado-btn:selected {
+    -fx-background-color: #EEF2FF;
+    -fx-border-color: #4F46E5;
+    -fx-text-fill: #4F46E5;
+    -fx-font-weight: bold;
+}

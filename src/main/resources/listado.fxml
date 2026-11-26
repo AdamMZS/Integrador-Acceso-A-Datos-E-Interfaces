@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/27" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <VBox prefWidth="230.0" spacing="20.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E7EB; -fx-border-width: 0 1 0 0;">
+            <padding>
+                <Insets bottom="20.0" left="16.0" right="16.0" top="20.0" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo2.png" />
+                     </image>
+                  </ImageView>
+                        <VBox spacing="1.0">
+                            <children>
+                                <Label style="-fx-text-fill: #111827;" text="Postula">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Por Alvaro y Adam" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <VBox spacing="6.0">
+                    <padding>
+                        <Insets top="10.0" />
+                    </padding>
+                    <children>
+                        <Button fx:id="btnNavInicio" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand; -fx-padding: 0 12 0 12;" text="Inicio">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                        <Button fx:id="btnNavCandidaturas" alignment="CENTER_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #EEF2FF; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 12 0 12;" text="Candidaturas">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/menu-burger.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                        <Button fx:id="btnNavAnadir" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: transparent; -fx-text-fill: #4B5563; -fx-cursor: hand; -fx-padding: 0 12 0 12;" text="+ Anadir" />
+                    </children>
+                </VBox>
+                <Region VBox.vgrow="ALWAYS" />
+                <VBox spacing="10.0" style="-fx-border-color: #E5E7EB; -fx-border-width: 1 0 0 0;">
+                    <padding>
+                        <Insets top="14.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 10px; -fx-font-weight: bold;" text="ESPACIO PERSONAL" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #E0E7FF; -fx-text-fill: #4F46E5; -fx-background-radius: 16; -fx-font-weight: bold;" text="U" />
+                                <VBox>
+                                    <children>
+                                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Usuario" />
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 11px;" text="Mi espacio de trabajo" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="20.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="48.0" spacing="8.0" style="-fx-border-color: #E5E7EB; -fx-border-width: 0 0 1 0;">
+                    <padding>
+                        <Insets left="28.0" right="28.0" />
+                    </padding>
+                    <children>
+                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mi espacio de trabajo" />
+                        <Label style="-fx-text-fill: #9CA3AF; -fx-font-size: 12px;" text="/" />
+                        <Label style="-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 12px;" text="Candidaturas" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Tracker de Candidaturas Laborales" />
+                    </children>
+                </HBox>
+                <VBox spacing="18.0" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20.0" left="28.0" right="28.0" top="4.0" />
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <children>
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <Label style="-fx-text-fill: #111827;" text="Candidaturas">
+                                            <font>
+                                                <Font name="System Bold" size="22.0" />
+                                            </font>
+                                        </Label>
+                                        <Label style="-fx-text-fill: #6B7280; -fx-font-size: 13px;" text="Todas tus oportunidades, en un solo lugar." />
+                                    </children>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnImportarCSV" graphicTextGap="8.0" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #374151; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 14 0 14;" text="Importar CSV">
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/file-import.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                                <Button fx:id="btnAnadirCandidatura" mnemonicParsing="false" prefHeight="36.0" style="-fx-background-color: #4F46E5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 16 0 16;" text="+ Anadir candidatura" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-background-radius: 8;">
+                            <padding>
+                                <Insets bottom="12.0" left="14.0" right="14.0" top="12.0" />
+                            </padding>
+                            <children>
+                                <TextField fx:id="txtBuscar" prefHeight="34.0" prefWidth="320.0" promptText="Buscar por titulo, empresa o ID..." style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <ComboBox fx:id="cmbEstado" prefHeight="34.0" prefWidth="160.0" promptText="Estado: Todos" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6;" />
+                                <ComboBox fx:id="cmbEmpresa" prefHeight="34.0" prefWidth="160.0" promptText="Empresa: Todas" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 6; -fx-background-radius: 6;" />
+                            </children>
+                        </HBox>
+                        <TableView fx:id="tablaCandidaturas" style="-fx-border-color: #E5E7EB; -fx-border-radius: 8; -fx-background-radius: 8;" stylesheets="@estilos.css" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colId" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" text="ID" />
+                                <TableColumn fx:id="colTitulo" prefWidth="230.0" text="Titulo" />
+                                <TableColumn fx:id="colEmpresa" prefWidth="160.0" text="Empresa" />
+                                <TableColumn fx:id="colEstado" prefWidth="140.0" text="Estado" />
+                                <TableColumn fx:id="colFecha" prefWidth="160.0" text="Fecha de postulacion" />
+                                <TableColumn fx:id="colAcciones" maxWidth="150.0" minWidth="120.0" prefWidth="130.0" text="Acciones" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                            <children>
+                                <Label fx:id="lblContador" style="-fx-text-fill: #6B7280; -fx-font-size: 12px;" text="Mostrando 1-8 de 13 candidaturas" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnPaginaAnterior" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 4; -fx-text-fill: #6B7280; -fx-cursor: hand;" text="&lt;" />
+                                <Button fx:id="btnPagina1" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #EEF2FF; -fx-border-color: #C7D2FE; -fx-border-radius: 4; -fx-text-fill: #4F46E5; -fx-font-weight: bold; -fx-cursor: hand;" text="1" />
+                                <Button fx:id="btnPagina2" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 4; -fx-text-fill: #374151; -fx-cursor: hand;" text="2" />
+                        <Button fx:id="btnPaginaSiguiente" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-radius: 4; -fx-text-fill: #6B7280; -fx-cursor: hand;" text="&gt;" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
