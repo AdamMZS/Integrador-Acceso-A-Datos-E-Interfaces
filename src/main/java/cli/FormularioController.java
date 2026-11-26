@@ -1,5 +1,6 @@
 package cli;
 
+import dao.CandidaturaDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,10 +16,13 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import model.Candidatura;
+
 import java.io.IOException;
 
 public class FormularioController {
-
+    private final CandidaturaDAO candidaturaDAO = new CandidaturaDAO();
+    private Candidatura candidaturaEditar;
     @FXML
     private HBox bannerErrorGeneral;
 
@@ -102,8 +106,30 @@ public class FormularioController {
         }
     }
     private void ConfigurarNav(){
-        btnNavInicio.setOnAction(e -> cambiarVista("inicio.fxml",e ));
+        btnNavInicio.setOnAction(e -> cambiarVista("/inicio.fxml",e ));
         btnNavCandidaturas.setOnAction(e -> cambiarVista("/listado.fxml", e));
         btnCancelar.setOnAction(e -> cambiarVista("/listado.fxml", e));
+    }
+    public void setCandidatura(Candidatura c){
+        this.candidaturaEditar=c;
+        if (c!=null){
+            lblBreadcrumbActual.setText("Editar Candidatura");
+            lblTituloPagina.setText("Editar Candidatura");
+            lblSubtituloPagina.setText("Modifica los datos");
+            txtTitulo.setText(c.titulo());
+            txtTitulo.setText(c.titulo());
+            txtEmpresa.setText(c.empresa());
+            dpFecha.setValue(c.fechaPostulacion());
+            txtEnlace.setText(c.enlace() != null ? c.enlace() : "");
+            txtNotas.setText(c.notas() != null ? c.notas() : "");
+            if (c.estadoCandidatura()!=null){
+                switch (c.estadoCandidatura()){
+                    case PENDIENTE -> btnEstadoPendiente.setSelected(true);
+                    case ENTREVISTA -> btnEstadoEntrevista.setSelected(true);
+                    case RECHAZADO -> btnEstadoRechazado.setSelected(true);
+                    case ACEPTADO -> btnEstadoAceptado.setSelected(true);
+                }
+            }
+        }
     }
 }
