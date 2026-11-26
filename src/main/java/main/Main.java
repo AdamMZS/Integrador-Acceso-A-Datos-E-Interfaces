@@ -1,27 +1,24 @@
 package main;
 
-import cli.ControladorCLI;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-/**
- * Punto de entrada de la aplicación.
- */
-public class Main {
-    /**
-     * Crea el punto de entrada de la aplicación.
-     */
-    public Main() {
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/inicio.fxml"));
+        Parent root = loader.load();
+
+        primaryStage.setTitle("Postula");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
-    /**
-     * Ejecuta la aplicación con los argumentos recibidos.
-     *
-     * @param args comando y opciones de la CLI
-     */
     public static void main(String[] args) {
-        ControladorCLI controlador = new ControladorCLI();
-        int resultado = controlador.ejecutar(args);
-        if (resultado != 0) {
-            System.exit(resultado);
-        }
+        launch(args);
     }
 }
