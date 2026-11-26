@@ -11,6 +11,25 @@ import java.util.List;
 import java.util.Locale;
 
 public class CandidaturaDAO {
+
+    public boolean modificar(Candidatura candidatura) {
+        String sql = "UPDATE candidaturas SET titulo=?, empresa=?, estado=?, fecha_postulacion=?, enlace=?, notas=? WHERE id=?";
+        try (Connection conn = ConexionDb.obtenerConexion();
+             PreparedStatement pstm = conn.prepareStatement(sql)) {
+
+            pstm.setString(1, candidatura.titulo());
+            pstm.setString(2, candidatura.empresa());
+            pstm.setString(3, candidatura.estadoCandidatura().name());
+            pstm.setDate(4, java.sql.Date.valueOf(candidatura.fechaPostulacion()));
+            pstm.setString(5, candidatura.enlace());
+            pstm.setString(6, candidatura.notas());
+            pstm.setLong(7, candidatura.id());
+
+            return pstm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     //METODO PARA MOSTRAR TODAS LAS CANDIDATURAS
     public List<Candidatura> leerTodas(){
         List<Candidatura> lista=new ArrayList<>();
